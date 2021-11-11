@@ -5,7 +5,7 @@ env:
    - DATABASE_URL=postgresql://postgres@localhost:5432/myfruit;
 before_script:
   - psql -c 'create database myfruit' -U postgres  
-  - psql -U postgres -d myfruit-a -f table.sql
+  - psql -U postgres -d myfruit -a -f table.sql
  
 services:
   - postgresql
