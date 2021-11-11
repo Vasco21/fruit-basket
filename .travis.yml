@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - 12
 env:
-  - 'DATABASE_URL || 'postgresql://coder:pg123@localhost:5432/myfruit'
+  - 'DATABASE_URL || 'postgresql://postgres@localhost:5432/myfruit'
 before_script:
   - psql -c 'create database myfruit' -U postgres  
   - psql -U postgres -d myfruit-a -f table.sql
