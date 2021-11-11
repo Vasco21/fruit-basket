@@ -20,7 +20,7 @@ describe('Fruit basket' , function(){
 		await pool.query('DELETE FROM fruit_basket;');
 	});
 
-	it('Should create a new fruit basket for a given fruit type, qty & fruit price', async function(){
+	it.skip('Should create a new fruit basket for a given fruit type, qty & fruit price', async function(){
         await Basket.fruitBasket({fruitName: 'Orange', qty: 10, fruitPrice: 3.00});
 		await Basket.fruitBasket({fruitName: 'Orange', qty: 5, fruitPrice: 1.50});
 
