@@ -1,0 +1,1 @@
+[![Build Status](https://app.travis-ci.com/Vasco21/fruit-basket.svg?branch=master)](https://app.travis-ci.com/Vasco21/fruit-basket)
