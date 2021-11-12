@@ -20,7 +20,7 @@ describe('Fruit basket' , function(){
 		await pool.query('DELETE FROM fruit_basket;');
 	});
 
-	it.skip('Should create a new fruit basket for a given fruit type, qty & fruit price', async function(){
+	it('Should create a new fruit basket for a given fruit type, qty & fruit price', async function(){
         await Basket.fruitBasket({fruitName: 'Orange', qty: 10, fruitPrice: 3.00});
 		await Basket.fruitBasket({fruitName: 'Orange', qty: 5, fruitPrice: 1.50});
 
@@ -41,7 +41,7 @@ describe('Fruit basket' , function(){
         
         await Basket.fruitBasket({fruitName: 'Avocados', qty: 5, fruitPrice: 4.50});
 
-		await Basket.updateNumFruit({fruitName: 'Avocados', qty:11});
+		await Basket.updateNumFruit({fruitName: 'Avocados', qty:9});
 
 		assert.deepEqual({fruit_type: 'Avocados', qty: 14, fruit_price: 4.50}, await Basket.findAll('Avocados'));
 	});
