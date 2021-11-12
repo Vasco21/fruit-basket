@@ -41,7 +41,7 @@ describe('Fruit basket' , function(){
         
         await Basket.fruitBasket({fruitName: 'Avocados', qty: 5, fruitPrice: 4.50});
 
-		await Basket.updateNumFruit({fruitName: 'Avocados', qty: 9});
+		await Basket.updateNumFruit({fruitName: 'Avocados', qty:11});
 
 		assert.deepEqual({fruit_type: 'Avocados', qty: 14, fruit_price: 4.50}, await Basket.findAll('Avocados'));
 	});
