@@ -22,19 +22,18 @@ describe('Fruit basket' , function(){
 
 	it('Should create a new fruit basket for a given fruit type, qty & fruit price', async function(){
         await Basket.fruitBasket({fruitName: 'Orange', qty: 10, fruitPrice: 3.00});
-		await Basket.fruitBasket({fruitName: 'Orange', qty: 5, fruitPrice: 1.50});
-
+			
 		assert.deepEqual([{fruit_type: 'Orange', qty: 10, fruit_price: 3.00}], await Basket.getfruitBasket());
 	});
 
     it('Should find all the fruit baskets for a given fruit type', async function(){
-
         await Basket.fruitBasket({fruitName: 'Orange', qty: 10, fruitPrice: 2.50});
 		await Basket.fruitBasket({fruitName: 'Grape', qty: 15, fruitPrice: 1.50});
-		await Basket.fruitBasket({fruitName: 'Apple', qty: 7, fruitPrice: 3.50});
-        await Basket.fruitBasket({fruitName: 'Avocados', qty: 5, fruitPrice: 4.50});
+		await Basket.fruitBasket({fruitName: 'Apple', qty: 5, fruitPrice: 2.00});
 
-		assert.deepEqual({fruit_type: 'Grape', qty: 15, fruit_price:1.50}, await Basket.findAll('Grape'));     
+		assert.deepEqual({fruit_type: 'Grape', qty: 15, fruit_price:1.50}, await Basket.findAll('Grape'));
+		assert.deepEqual({fruit_type: 'Orange', qty: 10, fruit_price:2.50}, await Basket.findAll('Orange'));
+		assert.deepEqual({fruit_type: 'Apple', qty: 5, fruit_price:2.00}, await Basket.findAll('Apple'));       
     })
 
     it('Should update the number of fruits in a given basket', async function(){
@@ -58,7 +57,6 @@ describe('Fruit basket' , function(){
 
 		assert.deepEqual(10, await Basket.getQty('Avocados'));
 	})
-
 	after(function(){
 		pool.end();
 	});

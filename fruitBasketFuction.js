@@ -3,11 +3,7 @@ module.exports = (dataBase) => {
     const pool = dataBase;
 
     var fruitBasket = async function(basket){
-        var fruitBasket = [
-            basket.fruitName,
-            basket.qty,
-            basket.fruitPrice
-        ];
+        var fruitBasket = [basket.fruitName, basket.qty, basket.fruitPrice];
 
         const fruitType = await pool.query('SELECT fruit_type FROM fruit_basket WHERE fruit_type = $1', [basket.fruitName]);
         if(fruitType.rowCount === 0){
@@ -49,6 +45,4 @@ module.exports = (dataBase) => {
         updateNumFruit,
         sumTotal
     } 
-
-
 }
