@@ -4,11 +4,8 @@ module.exports = (dataBase) => {
 
     var fruitBasket = async function(basket){
         var fruitBasket = [basket.fruitName, basket.qty, basket.fruitPrice];
-
-        const fruitType = await pool.query('SELECT fruit_type FROM fruit_basket WHERE fruit_type = $1', [basket.fruitName]);
-        if(fruitType.rowCount === 0){
-            await pool.query('INSERT INTO fruit_basket (fruit_type, qty, fruit_price) VALUES ($1, $2, $3)', fruitBasket); 
-        }
+        await pool.query('SELECT fruit_type FROM fruit_basket WHERE fruit_type = $1', [basket.fruitName]);
+        await pool.query('INSERT INTO fruit_basket (fruit_type, qty, fruit_price) VALUES ($1, $2, $3)', fruitBasket); 
     }
 
     var getfruitBasket = async function(){
