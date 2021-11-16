@@ -38,17 +38,17 @@ describe('Fruit basket' , function(){
 
     it('Should update the number of fruits in a given basket', async function(){
         
-        await Basket.fruitBasket({fruitName: 'Avocados', qty: 5, fruitPrice: 4.50});
+        await Basket.fruitBasket({fruitName: 'Banana', qty: 5, fruitPrice: 4.50});
 
-		await Basket.updateNumFruit({fruitName: 'Avocados', qty:9});
+		await Basket.updateNumFruit({fruitName: 'Banana', qty:9});
 
-		assert.deepEqual({fruit_type: 'Avocados', qty: 14, fruit_price: 4.50}, await Basket.findAll('Avocados'));
+		assert.deepEqual({fruit_type: 'Banana', qty: 14, fruit_price: 4.50}, await Basket.findAll('Banana'));
 	});
 
     it('Should show the total price for a given fruit basket', async function(){
-        await Basket.fruitBasket({fruitName: 'Avocados', qty: 5, fruitPrice: 4.50});
+        await Basket.fruitBasket({fruitName: 'Mango', qty: 5, fruitPrice: 4.50});
 	
-		assert.deepEqual({fruit_type: 'Avocados', total_price: 22.50}, await Basket.sumTotal('Avocados'));
+		assert.deepEqual({fruit_type: 'Mango', total_price: 22.50}, await Basket.sumTotal('Mango'));
 	});
 
 
